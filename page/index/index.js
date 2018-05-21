@@ -23,26 +23,6 @@ Page({
 
   loadMovies () {
 
-    // wx.showLoading({
-    //   title: '拼命加载中...',
-    // })
-
-    // this.setData({subtitle: '加载中...'})
-
-    // return app.douban.find(this.data.type, this.data.page++, this.data.size)
-    //   .then(d => {
-    //     if (d.subjects.length) {
-    //       this.setData({ subtitle: d.title, movies: this.data.movies.concat(d.subjects) })
-    //     } else {
-    //       this.setData({ subtitle: d.title, hasMore: false })
-    //     }
-    //     wx.hideLoading()
-    //   })
-    //   .catch(e => {
-    //     this.setData({ subtitle: '获取数据异常' })
-    //     console.error(e)
-    //     wx.hideLoading()
-    //   })
     this.setData({ loading: true})
     return app.douban.find('top250', this.data.page++, this.data.size)
     .then(d => {
@@ -67,9 +47,9 @@ Page({
 
   gotoDetail (e) {
     console.log(e)
-    const { id } = e.currentTarget.dataset.id
+    const id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '',
+      url: '../detail/detail?id=' + id,
     })
   },
 
