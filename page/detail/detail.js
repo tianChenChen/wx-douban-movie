@@ -18,6 +18,7 @@ Page({
    */
   onLoad: function (options) {
     const { id } = options
+    // const id = 1291546
 
     wx.showLoading({
       title: '',

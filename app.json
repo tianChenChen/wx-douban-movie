@@ -2,8 +2,9 @@
   "pages": [
     "page/index/index",
     "page/subject/subject",
-    "page/user/user",
-    "page/detail/detail"
+    "page/detail/detail",
+    "page/user/user"
+    
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
