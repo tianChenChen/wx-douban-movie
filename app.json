@@ -3,13 +3,13 @@
     "page/index/index",
     "page/subject/subject",
     "page/detail/detail",
-    "page/user/user"
-    
+    "page/user/user",
+    "page/subject-list/subject-list"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "电影预告",
+    "navigationBarTitleText": "好评电影",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light",
     "enablePullDownRefresh": false

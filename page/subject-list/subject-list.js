@@ -12,41 +12,45 @@ Page({
     page: 1,
     size: 20,
     subtitle: '加载中...',
+    loading: true,
+    type: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onLoad: function (options) {
+    const type = options.type
+    console.log(type)
+    this.setData({type})
     this.loadMovies()
   },
 
-  loadMovies () {
+  loadMovies() {
 
-    this.setData({ loading: true})
-    return app.douban.find('new_movies', this.data.page++, this.data.size)
-    .then(d => {
-      console.log(d)
-      const data = d.subjects
-      const movies = this.data.movies
+    this.setData({ loading: true })
+    return app.douban.find(this.data.type, this.data.page++, this.data.size)
+      .then(d => {
+        const data = d.subjects
+        const movies = this.data.movies
 
-      for (let i = 0; i < data.length; i+=2) {
-        movies.push([data[i], data[i+1] ? data[i+1] : null])
-      }
+        for (let i = 0; i < data.length; i += 2) {
+          movies.push([data[i], data[i + 1] ? data[i + 1] : null])
+        }
 
-      this.setData({ movies, loading: false}) 
-    })
+        this.setData({ movies, loading: false })
+      })
   },
 
-  scrollHandler () {
+  scrollHandler() {
     const { page } = this.data
     this.setData({
-      page:page+1
+      page: page + 1
     })
     this.loadMovies()
   },
 
-  gotoDetail (e) {
+  gotoDetail(e) {
     console.log(e)
     const id = e.currentTarget.dataset.id
     wx.navigateTo({
@@ -58,28 +62,28 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
@@ -102,6 +106,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

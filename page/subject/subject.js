@@ -7,30 +7,43 @@ Page({
   data: {
     types: [
       {
-        name: '喜剧',
+        name: '正在热映',
+        type: 'in_theaters',
         img: '/assets/image/xiju.png'
       },
       {
-        name: '动作',
+        name: '即将上映',
+        type: 'coming_soon',
         img: '/assets/image/dongzuo.png'
       },
       {
-        name: '科幻',
+        name: '新片榜',
+        type: 'new_movies',
         img: '/assets/image/kehuan.png'
       },
       {
-        name: '爱情',
+        name: 'Top250',
+        type: 'top250',
         img: '/assets/image/aiqing.png'
       },
       {
-        name: '动画',
+        name: '口碑榜',
+        type: 'weekly',
+        img: '/assets/image/donghua.png'
+      },
+      {
+        name: '北美票房榜',
+        type: 'us_box',
         img: '/assets/image/donghua.png'
       }
     ]
   },
 
   typeHandler (e) {
-    const type = e.currentTarget.dataset
+    const type = e.currentTarget.dataset.type
+    wx.navigateTo({
+      url: '../subject-list/subject-list?type=' + type,
+    })
     console.log(type)
   }
 })

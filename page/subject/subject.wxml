@@ -1,6 +1,6 @@
 <!--page/subject/subject.wxml-->
 <view class='container'>
-  <view class='type-item' wx:for="{{types}}" wx:key="{{index}}" data-type='{{item.name}}' bindtap='typeHandler'>
+  <view class='type-item' wx:for="{{types}}" wx:key="{{index}}" data-type='{{item.type}}' bindtap='typeHandler'>
     <image class='type-img' src='{{item.img}}' mode='aspectFill'></image>
     <text class='type-title'>{{item.name}}</text>
   </view>
